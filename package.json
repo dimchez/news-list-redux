@@ -15,7 +15,8 @@
     "intl": "^1.0.0",
     "nordnet-next-api": "^2.0.0",
     "normalize.css": "^3.0.3",
-    "react": "^0.13.3",
+    "react": "^0.14.0",
+    "react-dom": "^0.14.0",
     "react-redux": "^3.0.0",
     "redux": "^3.0.0",
     "redux-thunk": "^1.0.0"
@@ -45,7 +46,7 @@
     "opn": "^1.0.2",
     "postcss-loader": "^0.4.3",
     "react-hot-loader": "^1.2.7",
-    "redux-devtools": "^2.1.0",
+    "redux-devtools": "^2.1.5",
     "require-dir": "^0.3.0",
     "rimraf": "^2.4.2",
     "sass-loader": "^0.4.2",
