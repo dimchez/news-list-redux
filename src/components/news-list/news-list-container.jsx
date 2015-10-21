@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { getNews } from './actions';
-import { showNewsBody } from './../actions';
+import { actions } from 'actions';
 import NewsList from './news-list';
 
 class NewsListContainer extends React.Component {
@@ -17,13 +16,13 @@ class NewsListContainer extends React.Component {
 }
 
 function mapStateToProps(state) {
-  return state.newsList;
+  return state.news;
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    getNews: () => dispatch(getNews()),
-    showNewsBody: data => dispatch(showNewsBody(data)),
+    getNews: () => dispatch(actions.getNews()),
+    showNewsBody: data => dispatch(actions.showNewsBody(data)),
   }
 }
 

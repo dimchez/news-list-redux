@@ -1,5 +1,6 @@
-import { NEWS_REQUEST, NEWS_REQUEST_SUCCESS, NEWS_REQUEST_FAILURE } from './../actions';
+import { actionTypes } from 'actions';
 
+const { NEWS_REQUEST, NEWS_REQUEST_SUCCESS, NEWS_REQUEST_FAILURE } = actionTypes;
 const initialState = false;
 
 export default function isFetching(state = initialState, action) {

@@ -1,7 +1,13 @@
-import { SHOW_NEWS_BODY } from './action-types';
+import * as actionTypes from './action-types';
+import getNews from './get-news';
 import showNewsBody from './show-news-body';
+import getNewsBody from './get-news-body';
 
 export default {
-  SHOW_NEWS_BODY,
-  showNewsBody,
+  actionTypes,
+  actions: {
+    getNews,
+    getNewsBody,
+    showNewsBody,
+  },
 };

@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { getNewsBody } from './actions';
+import { actions } from 'actions';
 import NewsBody from './news-body';
 
 class NewsBodyContainer extends React.Component {
@@ -17,7 +17,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    getNewsBody: () => dispatch(getNewsBody())
+    getNewsBody: () => dispatch(actions.getNewsBody())
   };
 }
 

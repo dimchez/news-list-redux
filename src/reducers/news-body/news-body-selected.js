@@ -1,5 +1,6 @@
-import { SHOW_NEWS_BODY } from './../../actions';
+import { actionTypes } from 'actions';
 
+const { SHOW_NEWS_BODY } = actionTypes;
 const initialState = 0;
 
 export default function selected(state = initialState, action) {

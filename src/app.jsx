@@ -1,6 +1,5 @@
 import React from 'react';
-import { NewsListContainer } from './news-list';
-import { NewsBodyContainer } from './news-body';
+import { NewsListContainer, NewsBodyContainer } from './components';
 
 class App extends React.Component {
   render() {
