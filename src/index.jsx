@@ -1,11 +1,9 @@
 import React from 'react';
-import { Provider } from 'react-redux';
+import ReactDOM from 'react-dom';
 import App from './app';
+import devtools from './devtools';
 import store from './configure-store';
 
+const AppWithDevTools = devtools(App, store);
 
-React.render(
-  <Provider store={ store }>
-    { () => <App />}
-  </Provider>,
-  document.getElementById('app'));
+ReactDOM.render(<AppWithDevTools />, document.getElementById('app'));
