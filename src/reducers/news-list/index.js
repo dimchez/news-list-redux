@@ -4,6 +4,7 @@ import isFetching from './news-is-fetching';
 import offset from './news-offset';
 import hasMore from './news-has-more';
 import hasLoaded from './news-has-loaded';
+import limit from './news-limit';
 
 const newsListReducers = combineReducers({
   news,
@@ -11,6 +12,7 @@ const newsListReducers = combineReducers({
   offset,
   hasMore,
   hasLoaded,
+  limit,
 });
 
 export default newsListReducers;

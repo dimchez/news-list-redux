@@ -1,5 +1,5 @@
-import NewsBodyContainer from './news-body-container';
+import NewsBody from './news-body';
 
 export default {
-  NewsBodyContainer,
+  NewsBody,
 };

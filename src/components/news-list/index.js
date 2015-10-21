@@ -1,5 +1,5 @@
-import NewsListContainer  from './news-list-container';
+import NewsList  from './news-list';
 
 export default {
-  NewsListContainer,
+  NewsList,
 };

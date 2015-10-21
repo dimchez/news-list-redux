@@ -1,5 +1,5 @@
-import { NewsListContainer } from './news-list';
-import { NewsBodyContainer } from './news-body';
+import NewsListContainer from './news-list-connected';
+import NewsBodyContainer from './news-body-connected';
 
 export default {
   NewsListContainer,

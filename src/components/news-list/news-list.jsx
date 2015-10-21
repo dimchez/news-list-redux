@@ -2,38 +2,48 @@ import React from 'react';
 import NewsItem from './news-item';
 
 class NewsList extends React.Component {
-  renderShowMoreNewsButton() {
-    if(!this.props.hasMore) {
+  renderGetNewsButton() {
+    const { hasMore, getNews } = this.props;
+
+    if(!hasMore) {
       return null;
     }
 
     return (
-      <button onClick={ this.props.getNews }>Get more news</button>
+      <button onClick={ getNews }>Get more news</button>
     );
   }
 
-  render() {
-    if(this.props.isFetching && !this.props.hasLoaded) {
-      return (
-        <div>Loading..</div>
-      );
-    }
+  renderNews() {
+    const { news, getNewsBody } = this.props;
 
-    if(!this.props.news.length) {
+    if(!news.length) {
       return (
         <div>No news to display</div>
       );
     }
 
-    const news = this.props.news.map(
-      newsItem => <NewsItem key={ newsItem.news_id } newsItem={ newsItem } onSelect={ this.props.showNewsBody }/>);
+    return (
+      <ul>
+        { news.map(newsItem =>
+            <NewsItem key={ newsItem.news_id } newsItem={ newsItem } onSelect={ getNewsBody }/>) }
+      </ul>
+    );
+  }
+
+  render() {
+    const { isFetching, hasLoaded } = this.props;
+
+    if(isFetching && !hasLoaded) {
+      return (
+        <div>Loading..</div>
+      );
+    }
 
     return (
       <div>
-        <ul>
-          { news }
-        </ul>
-        { this.renderShowMoreNewsButton() }
+        { this.renderNews() }
+        { this.renderGetNewsButton() }
       </div>
     );
   }

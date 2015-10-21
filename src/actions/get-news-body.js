@@ -2,8 +2,9 @@ import { NEWS_BODY_REQUEST, NEWS_BODY_REQUEST_SUCCESS, NEWS_BODY_REQUEST_FAILURE
 import thunk from 'redux-thunk';
 import api from 'nordnet-next-api';
 
-export function newsBodyRequest() {
+export function newsBodyRequest(data) {
   return {
+    data,
     type: NEWS_BODY_REQUEST,
   };
 }
@@ -22,13 +23,17 @@ export function newsBodyRequestFailure(data) {
   }
 }
 
-export default function getNewsBody() {
+export default function getNewsBody({ news_id }) {
   return (dispatch, getState) => {
-    const state = getState();
-    const item_id = state.newsBody.selected;
-    dispatch(newsBodyRequest());
-    return api.get('/api/news/{item_id}', { item_id })
-      .then(({ data }) => dispatch(newsBodyRequestSuccess(data)))
-      .catch(({ data }) => dispatch(newsBodyRequestFailure(data)));
+    dispatch(newsBodyRequest({ news_id }));
+    const newsBody = getState().newsBody.newsBody[news_id];
+
+    if (!newsBody) {
+      api.get('/api/news/{news_id}', { news_id })
+        .then(({ data }) => dispatch(newsBodyRequestSuccess(data)))
+        .catch(({ data }) => dispatch(newsBodyRequestFailure(data)));
+    } else {
+      dispatch(newsBodyRequestSuccess([newsBody]));
+    }
   };
 }

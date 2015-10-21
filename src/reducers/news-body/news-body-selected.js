@@ -1,11 +1,11 @@
 import { actionTypes } from 'actions';
 
-const { SHOW_NEWS_BODY } = actionTypes;
+const { NEWS_BODY_REQUEST } = actionTypes;
 const initialState = 0;
 
 export default function selected(state = initialState, action) {
   switch (action.type) {
-    case SHOW_NEWS_BODY:
+    case NEWS_BODY_REQUEST:
       return action.data.news_id;
     default:
       return state;
