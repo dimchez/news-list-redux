@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import { devTools, persistState} from 'redux-devtools';
 import { DevTools, DebugPanel, LogMonitor } from 'redux-devtools/lib/react';
 
-export function createStoreWithDevTools(middleware, debug = DEBUG) {
+export function createStoreWithDevTools(middleware, debug = false) {
   return debug ?
     compose(middleware, devTools(), persistState(window.location.href.match(/[?&]debug_session=([^&]+)\b/)))(createStore) :
     middleware(createStore);
@@ -18,7 +18,7 @@ export const DebugPanelComponent = ({ store, monitor }) => {
   );
 };
 
-export default (Component, store, debug = DEBUG) =>
+export default (Component, store, debug = false) =>
   class extends React.Component {
     render() {
       const debugPanel = debug ? <DebugPanelComponent store={ store } monitor={ LogMonitor } /> : null;

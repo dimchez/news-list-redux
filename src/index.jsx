@@ -4,6 +4,6 @@ import App from './app';
 import devtools from './devtools';
 import store from './configure-store';
 
-const AppWithDevTools = devtools(App, store);
+const AppWithDevTools = devtools(App, store, DEBUG);
 
 ReactDOM.render(<AppWithDevTools />, document.getElementById('app'));
