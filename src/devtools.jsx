@@ -10,10 +10,10 @@ export function createStoreWithDevTools(middleware, debug = DEBUG) {
     middleware(createStore);
 }
 
-export const DebugPanelComponent = ({ store }) => {
+export const DebugPanelComponent = ({ store, monitor }) => {
   return (
     <DebugPanel top right bottom>
-      <DevTools store={ store } monitor={ LogMonitor } />
+      <DevTools store={ store } monitor={ monitor } />
     </DebugPanel>
   );
 };
@@ -21,7 +21,7 @@ export const DebugPanelComponent = ({ store }) => {
 export default (Component, store, debug = DEBUG) =>
   class extends React.Component {
     render() {
-      const debugPanel = debug ? <DebugPanelComponent store={ store } /> : null;
+      const debugPanel = debug ? <DebugPanelComponent store={ store } monitor={ LogMonitor } /> : null;
       return (
         <div>
           <Provider store={ store }>
