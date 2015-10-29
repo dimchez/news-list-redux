@@ -4,6 +4,8 @@
   "description": "Nordnet React app",
   "scripts": {
     "start:api": "node --harmony ./api-server/api-server.js --port 9002",
+    "start:server": "node ./src/server/index.js",
+    "start:ssr": "npm-run-all --parallel start:api start:server start:webpack-dev-server",
     "start": "npm-run-all --parallel start:api start:webpack-dev-server",
     "start:webpack-dev-server": "NODE_ENV=development node ./webpack/webpack-dev-server",
     "start:windows": "set NODE_ENV=development&&node ./webpack/webpack-dev-server",
@@ -11,6 +13,7 @@
   },
   "dependencies": {
     "classnames": "^2.1.1",
+    "detect-node": "^2.0.3",
     "es6-promise": "^3.0.2",
     "intl": "^1.0.0",
     "nordnet-next-api": "^2.0.0",

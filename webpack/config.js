@@ -43,10 +43,6 @@ var config = {
   ],
   plugins: plugins,
   resolve: {
-    alias: {
-      'actions': path.join(__dirname, './../src/actions'),
-      'reducers': path.join(__dirname, './../src/reducers'),
-    },
     extensions: ['', '.js', '.json', '.jsx'],
   },
   devServer: {
@@ -55,9 +51,6 @@ var config = {
     hot: true,
     noInfo: false,
     inline: true,
-    proxy: {
-      '/api/*': 'http://localhost:9002'
-    },
     stats: {
       colors: true
     }

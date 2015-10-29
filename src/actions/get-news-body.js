@@ -1,6 +1,9 @@
 import { NEWS_BODY_REQUEST, NEWS_BODY_REQUEST_SUCCESS, NEWS_BODY_REQUEST_FAILURE } from './action-types';
 import thunk from 'redux-thunk';
 import api from 'nordnet-next-api';
+import isNode from 'detect-node';
+
+const url = isNode ? 'http://localhost:8080/' : '';
 
 export function newsBodyRequest(data) {
   return {
@@ -29,7 +32,7 @@ export default function getNewsBody({ news_id }) {
     const newsBody = getState().newsBody.newsBody[news_id];
 
     if (!newsBody) {
-      api.get('/api/news/{news_id}', { news_id })
+      return api.get(`${url}/api/news/{news_id}`, { news_id })
         .then(({ data }) => dispatch(newsBodyRequestSuccess(data)))
         .catch(({ data }) => dispatch(newsBodyRequestFailure(data)));
     } else {

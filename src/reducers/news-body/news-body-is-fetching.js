@@ -1,4 +1,4 @@
-import { actionTypes } from 'actions';
+import { actionTypes } from './../../actions';
 
 const { NEWS_BODY_REQUEST, NEWS_BODY_REQUEST_SUCCESS, NEWS_BODY_REQUEST_FAILURE } = actionTypes;
 const initialState = false;
